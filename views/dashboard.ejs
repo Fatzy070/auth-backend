@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome, <%= user.fullname %> ( <%= user.role %> )</h1>
+
+  <table border="1" cellpadding="10">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Fullname</th>
+        <th>Email</th>
+        <% if (user.role === 'admin') { %>
+          <th>Action</th>
+        <% } %>
+      </tr>
+    </thead>
+   <tbody>
+  <% users.forEach((u, index) => { %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= u.fullname %></td>
+      <td><%= u.email %></td>
+      <% if (user.role === 'admin') { %>
+        <td>
+          <% if (user._id !== u._id.toString()) { %>
+            <form method="POST" action="/delete/<%= u._id %>">
+              <button type="submit" onclick="return confirm('Delete user?')">Delete</button>
+            </form>
+          <% } else { %>
+            <span>You</span>
+          <% } %>
+        </td>
+      <% } %>
+    </tr>
+  <% }) %>
+</tbody>
+
+  </table>
+
+  <form action="/logout" method="post">
+        <button type="submit">logout</button>
+    </form>
+</body>
+</html>
