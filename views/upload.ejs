@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first-div {
+            display: grid;
+            grid-template-columns: repeat(4 , 1fr );
+        }
+        .first-div img{
+           max-width: 100%;
+           width: 300px;
+           height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>upload page</h1>
+    <% if(error && error) { %>
+        <div style="color: red;"><%= error[0] %></div>
+        <% } %>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="group">
+            <input type="file" name="file" id="">
+        </div>
+        <button>upload file </button>
+    </form>
+    <h2>Uploaded Files</h2>
+
+<div class="first-div">
+  <% images.forEach(img => { %>
+    <div >
+      <img src="<%= img %>" alt="uploaded image" />
+    </div>
+  <% }) %>
+</div>
+
+</body>
+</html>

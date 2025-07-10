@@ -14,11 +14,11 @@ server.use(session({
     saveUninitialized: true
 }))
 server.use(flash())
-
+server.use(express.static(path.join(__dirname , 'public')))
 server.set('views' , path.join(__dirname , 'views'))
 server.set('view engine' , 'ejs')
 server.use('/' , require('./routes/PageRoutes'))
-
+server.use('/upload' , require('./routes/UploadRoute'))
 
 server.listen(PORT , ()=> 
     console.log(`server is running port ${PORT}`)
