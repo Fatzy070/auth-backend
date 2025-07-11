@@ -84,6 +84,11 @@
     <h1>Login</h1>
     <p><a href="/">Create an account</a></p>
     
+    <% if (message && message.length > 0) { %>
+  <div style="color: red; text-align: center; margin-bottom: 15px;">
+    <%= message %>
+  </div>
+<% } %>
 
     <form action="/login" method="post">
       <div>
