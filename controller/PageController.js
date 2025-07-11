@@ -89,7 +89,7 @@ const deleteUser = async (req, res) => {
 }
 
 const makeAdmin = async () => {
-  const user = await Auth.findOne({ email: 'cygyxinano@mailinator.com' }) // put your email
+  const user = await Auth.findOne({ email: 'cazitaha@mailinator.com' }) // put your email
   if (user) {
     user.role = 'admin'
     await user.save()
