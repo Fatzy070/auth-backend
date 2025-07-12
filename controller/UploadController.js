@@ -10,7 +10,7 @@ const uploadPage = async(req , res) => {
     files.forEach( files => images.push(`/images/${files}`))
      console.log(images)
      const error = req.flash("error")
-     res.render('upload' , { images , error })
+     res.render('upload' , { images: images.reverse() , error })
 }
 
 const uploadfile = async(req , res)=>{
